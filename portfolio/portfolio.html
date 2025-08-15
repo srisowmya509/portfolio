@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gunnam Sri Sowmya | Portfolio</title>
+  <meta name="description" content="Portfolio of Gunnam Sri Sowmya — CSE Data Science student, AI & Web development projects, certifications, internships, and profiles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --panel:#0b1226;       /* slightly lighter panel */
+      --muted:#94a3b8;       /* slate-400 */
+      --text:#e5e7eb;        /* gray-200 */
+      --heading:#f8fafc;     /* gray-50 */
+      --accent:#3b82f6;      /* blue-500 */
+      --accent-2:#2563eb;    /* blue-600 */
+      --chip:#1f2937;        /* gray-800 */
+      --card:#0b1226;
+      --border:#1f2937;
+      --link:#60a5fa;
+      --success:#22c55e;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:14px;
+      --radius-sm:10px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(59,130,246,.15), transparent 60%),
+                  radial-gradient(900px 500px at -10% 10%, rgba(37,99,235,.12), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    /* Navbar */
+    .nav{
+      position:sticky; top:0; z-index:40;
+      backdrop-filter:saturate(120%) blur(10px);
+      background:linear-gradient(to bottom, rgba(15,23,42,.85), rgba(15,23,42,.6));
+      border-bottom:1px solid var(--border);
+    }
+    .nav .wrap{max-width:var(--max); margin:auto; display:flex; align-items:center; justify-content:space-between; padding:12px 20px;}
+    .brand{font-weight:700; letter-spacing:.2px; color:var(--heading)}
+    .nav a.link{margin:0 10px; font-weight:500; color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; font-weight:600;
+      padding:10px 14px; border-radius:10px; border:1px solid var(--accent);
+      background:linear-gradient(180deg, var(--accent), var(--accent-2)); color:white; text-decoration:none !important;
+      box-shadow: var(--shadow);
+    }
+    .btn.ghost{
+      background:transparent; color:var(--text); border-color:var(--border); box-shadow:none;
+    }
+    .menu{display:flex; align-items:center; gap:6px}
+    .menu-toggle{display:none; border:1px solid var(--border); background:transparent; color:var(--text); padding:8px 10px; border-radius:10px}
+    @media (max-width:880px){
+      .menu{display:none}
+      .menu.mobile{display:flex; flex-direction:column; align-items:flex-start; gap:12px; padding:10px 20px}
+      .menu-toggle{display:inline-flex}
+    }
+
+    /* Sections */
+    section{padding:72px 20px}
+    .wrap{max-width:var(--max); margin:auto}
+
+    /* Hero */
+    .hero{padding:90px 20px 60px}
+    .hero .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:28px; padding:36px;
+    }
+    .headline{font-size:44px; line-height:1.15; color:var(--heading); margin:0 0 8px}
+    .subtitle{font-size:18px; color:var(--muted); margin:0 0 20px}
+    .hero .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .avatar{
+      width:100%; border-radius:var(--radius); border:1px solid var(--border);
+      min-height:260px; background:linear-gradient(135deg, rgba(59,130,246,.2), rgba(37,99,235,.05));
+      display:flex; align-items:center; justify-content:center; color:var(--muted); font-weight:600;
+    }
+    @media (max-width:880px){
+      .hero .card{grid-template-columns: 1fr; padding:24px}
+      .headline{font-size:34px}
+    }
+
+    /* Pills / chips */
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .chip{background:var(--chip); border:1px solid var(--border); border-radius:999px; padding:8px 12px; font-size:13px; color:var(--muted)}
+
+    /* Two-column sections */
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+    @media (max-width:880px){.grid-2{grid-template-columns:1fr}}
+
+    /* Cards */
+    .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius-sm); padding:20px}
+    .card h3{margin:0 0 6px; color:var(--heading)}
+    .muted{color:var(--muted)}
+    .list{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    @media (max-width:880px){.list{grid-template-columns:1fr}}
+
+    /* Project cards */
+    .project{border:1px solid var(--border); border-radius:12px; padding:16px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00))}
+    .project h4{margin:4px 0 6px; color:var(--heading)}
+    .tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+    .tag{font-size:12px; padding:6px 10px; background:var(--chip); border:1px solid var(--border); border-radius:999px; color:var(--muted)}
+
+    /* Profiles grid */
+    .profiles{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    @media (max-width:880px){.profiles{grid-template-columns:1fr 1fr}}
+    .profile{display:flex; justify-content:space-between; align-items:center; padding:14px 16px; border:1px solid var(--border); border-radius:12px; background:var(--panel)}
+    .profile a{font-weight:600}
+
+    /* Footer */
+    footer{padding:40px 20px; border-top:1px solid var(--border); color:var(--muted); text-align:center}
+
+    /* Small helpers */
+    .section-title{font-size:26px; color:var(--heading); margin:0 0 14px}
+    .kicker{font-weight:600; letter-spacing:.2px; color:var(--muted); margin-bottom:6px; text-transform:uppercase; font-size:12px}
+    .spacer{height:8px}
+    .divider{height:1px; background:var(--border); margin:18px 0}
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="wrap">
+      <div class="brand">Gunnam Sri Sowmya</div>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+      <div class="menu">
+        <a class="link" href="#about">About</a>
+        <a class="link" href="#skills">Skills</a>
+        <a class="link" href="#projects">Projects</a>
+        <a class="link" href="#certs">Certifications & Internships</a>
+        <a class="link" href="#profiles">Profiles</a>
+        <a class="link" href="#contact">Contact</a>
+        <a class="btn" href="https://www.linkedin.com/in/gunnam-sri-sowmya-642a692b8" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="menu mobile" id="mobileMenu" style="display:none;">
+      <a class="link" href="#about" onclick="toggleMenu()">About</a>
+      <a class="link" href="#skills" onclick="toggleMenu()">Skills</a>
+      <a class="link" href="#projects" onclick="toggleMenu()">Projects</a>
+      <a class="link" href="#certs" onclick="toggleMenu()">Certifications & Internships</a>
+      <a class="link" href="#profiles" onclick="toggleMenu()">Profiles</a>
+      <a class="link" href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="card">
+        <div>
+          <p class="kicker">CSE • Data Science</p>
+          <h1 class="headline">Hi, I’m Gunnam Sri Sowmya</h1>
+          <p class="subtitle">Passionate about AI, Data Science, and Web Development. I build practical apps that solve real problems—from smart attendance to event analytics.</p>
+          <div class="cta">
+            <a class="btn" href="https://github.com/srisowmya509" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn ghost" href="mailto:your.email@example.com">Email Me</a>
+            <!-- Optional resume: replace with your file link -->
+            <!-- <a class="btn ghost" href="RESUME_LINK_HERE" target="_blank" rel="noopener">Resume</a> -->
+          </div>
+          <div class="chips">
+            <span class="chip">India</span>
+            <span class="chip">Pragati Engineering College</span>
+            <span class="chip">3rd Year • CSE (DS)</span>
+            <span class="chip">English • Telugu</span>
+          </div>
+        </div>
+        <div class="avatar">
+          Add your photo (replace this box with an <img> tag)
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <div class="wrap grid-2">
+      <div class="card">
+        <h2 class="section-title">About Me</h2>
+        <p>I’m a third‑year CSE (Data Science) student at Pragati Engineering College. I enjoy building end‑to‑end solutions—frontend, backend, and AI features—that are reliable, usable, and performance‑minded.</p>
+        <div class="divider"></div>
+        <div class="list">
+          <div>
+            <h3>Education</h3>
+            <p class="muted">Pragati Engineering College — B.Tech CSE (Data Science)</p>
+            <p class="muted">SSC: 100% • Intermediate: 91%</p>
+          </div>
+          <div>
+            <h3>Strong Areas</h3>
+            <p class="muted">AI/ML basics, problem solving, web apps, Firebase/Flask integrations.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>What I’m Looking For</h3>
+        <p class="muted">Internships or roles where I can build real products in AI + Web, and learn from strong engineering teams. Goal: ₹14 LPA in the near future.</p>
+        <div class="spacer"></div>
+        <h3>Highlights</h3>
+        <ul class="muted">
+          <li>NSS volunteer; proactive and community‑oriented.</li>
+          <li>Hands‑on with Firebase, Flask, and deployment basics.</li>
+          <li>Comfortable presenting demos to faculty/stakeholders.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="wrap">
+      <h2 class="section-title">Skills</h2>
+      <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">Java</span>
+        <span class="chip">HTML</span>
+        <span class="chip">CSS</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">Firebase</span>
+        <span class="chip">Flutter</span>
+        <span class="chip">Flask</span>
+        <span class="chip">Git & GitHub</span>
+        <span class="chip">Data Structures</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="wrap">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="list">
+        <!-- Project 1 -->
+        <div class="project">
+          <h4>Smart Attendance Tracking System</h4>
+          <p class="muted">Automated classroom attendance with face recognition, break handling, and early‑leave detection. Designed event presence checks (story analysis concept).</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Face Recognition</span><span class="tag">Database</span>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="project">
+          <h4>Fest Attendance App</h4>
+          <p class="muted">Flutter frontend + Flask backend with Firebase storage. Students upload photos; HOD can download event‑wise attendance reports (name, roll no, date, time, location).</p>
+          <div class="tags">
+            <span class="tag">Flutter</span><span class="tag">Flask</span><span class="tag">Firebase</span>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="project">
+          <h4>Company‑Specific Resource Hub</h4>
+          <p class="muted">A prep platform with company‑wise resources, past questions, and tips (Google, TCS, Infosys, etc.). Built as a clean web app.</p>
+          <div class="tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+          </div>
+        </div>
+        <!-- Project 4 -->
+        <div class="project">
+          <h4>LSTM Stock Price Prediction</h4>
+          <p class="muted">Time‑series modeling using Python and LSTM to forecast stock prices; experimented with training/validation splits and metrics.</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">TensorFlow/Keras</span><span class="tag">Pandas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+      <p class="muted">More work on GitHub → <a href="https://github.com/srisowmya509" target="_blank" rel="noopener">github.com/srisowmya509</a></p>
+    </div>
+  </section>
+
+  <!-- Certifications & Internships -->
+  <section id="certs">
+    <div class="wrap">
+      <h2 class="section-title">Certifications & Internships</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Certifications</h3>
+          <ul class="muted">
+            <li>NPTEL — Programming in Java</li>
+            <li>Salesforce AI Associate</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Internships</h3>
+          <ul class="muted">
+            <li>AIML Intern — Elevate Labs</li>
+            <li>1M1B Green Intern</li>
+            <li>ServiceNow Virtual Internship (Cohort 2)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profiles -->
+  <section id="profiles">
+    <div class="wrap">
+      <h2 class="section-title">Profiles</h2>
+      <div class="profiles">
+        <div class="profile">
+          <span>LinkedIn</span>
+          <a href="https://www.linkedin.com/in/gunnam-sri-sowmya-642a692b8" target="_blank" rel="noopener">View</a>
+        </div>
+        <div class="profile">
+          <span>GitHub</span>
+          <a href="https://github.com/srisowmya509" target="_blank" rel="noopener">View</a>
+        </div>
+        <div class="profile">
+          <span>CodeChef</span>
+          <a href="https://www.codechef.com/users/sowmya_4465" target="_blank" rel="noopener">View</a>
+        </div>
+        <div class="profile">
+          <span>LeetCode</span>
+          <a href="https://leetcode.com/u/Gunnam_sri_sowmya06/" target="_blank" rel="noopener">View</a>
+        </div>
+        <div class="profile">
+          <span>GeeksforGeeks</span>
+          <a href="https://www.geeksforgeeks.org/user/23a31a8r3b/" target="_blank" rel="noopener">View</a>
+        </div>
+        <div class="profile">
+          <span>HackerRank</span>
+          <a href="https://www.hackerrank.com/profile/23a31a4465" target="_blank" rel="noopener">View</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap grid-2">
+      <div class="card">
+        <h2 class="section-title">Contact</h2>
+        <p class="muted">Open to internships and projects. The fastest way to reach me is email.</p>
+        <div class="chips">
+          <span class="chip">Andhra Pradesh</span>
+          <span class="chip">Open to Remote</span>
+        </div>
+      </div>
+      <div class="card">
+        <form onsubmit="sendEmail(event)">
+          <label class="muted" for="name">Your Name</label>
+          <input id="name" name="name" required style="width:100%;margin:6px 0 12px;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0a1022;color:var(--text)">
+          <label class="muted" for="email">Your Email</label>
+          <input id="email" name="email" type="email" required style="width:100%;margin:6px 0 12px;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0a1022;color:var(--text)">
+          <label class="muted" for="msg">Message</label>
+          <textarea id="msg" name="msg" required rows="4" style="width:100%;margin:6px 0 14px;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0a1022;color:var(--text)"></textarea>
+          <button class="btn" type="submit">Send</button>
+          <p id="sentNote" class="muted" style="display:none;margin-top:10px;">Opening your email app…</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Gunnam Sri Sowmya • All rights reserved.
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      const m = document.getElementById('mobileMenu');
+      m.style.display = (m.style.display === 'none' || !m.style.display) ? 'flex' : 'none';
+    }
+    // Simple mailto form handler (no backend required)
+    function sendEmail(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('msg').value.trim();
+      const subject = encodeURIComponent("Portfolio Contact from " + name);
+      const body = encodeURIComponent(`From: ${name} <${email}>\n\n${msg}`);
+      const to = "your.email@example.com"; // TODO: replace with your real email
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      document.getElementById('sentNote').style.display='block';
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
